@@ -1,4 +1,5 @@
-class Guests:
+class Song:
 
-    def funct(self):
-        pass
+    def  __init__(self, song):
+        self.song = song
+    
