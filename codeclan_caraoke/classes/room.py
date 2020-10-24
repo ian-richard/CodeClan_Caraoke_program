@@ -14,5 +14,7 @@ class Room:
    
     def remove_track_playlist(self, song):
        self.playlist.remove([song])
+
+       #remove guest_list from guest class, add it to room. 
         
 
