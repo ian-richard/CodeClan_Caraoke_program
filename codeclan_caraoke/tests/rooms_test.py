@@ -29,11 +29,10 @@ class TestRoom(unittest.TestCase):
         self.room.add_to_playlist(self.song_2)
         self.assertEqual(2, len(self.room.playlist))
     
-    def test_add_3_to_playlist__result_2(self):
+    def test_remove_track_playlist__result_0(self):
         self.room.add_to_playlist(self.song_1)
-        self.room.add_to_playlist(self.song_2)
-        self.room.add_to_playlist(self.song_2)
-        self.assertEqual(2, len(self.room.playlist))
+        self.room.remove_track_playlist(self.song_1)
+        self.assertEqual(0, len(self.room.playlist))
 
     
         

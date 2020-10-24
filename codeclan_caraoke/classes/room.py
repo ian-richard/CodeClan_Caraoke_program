@@ -10,8 +10,9 @@ class Room:
         return self.playlist
     
     def add_to_playlist(self, song):
-        if song not in self.playlist:
-            self.playlist.append([song])
-    #for loop, for song in self.playlist:
+        self.playlist.append([song])
+   
+    def remove_track_playlist(self, song):
+       self.playlist.remove([song])
         
 
