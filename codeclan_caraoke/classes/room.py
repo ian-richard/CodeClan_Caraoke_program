@@ -16,5 +16,11 @@ class Room:
        self.playlist.remove([song])
 
        #remove guest_list from guest class, add it to room. 
+       #see basic solution
+    def add_guest_to_room(self, guest):
+        self.guests.append(guest)
+
+    def remove_guest_to_room(self, guest):
+        self.guests.remove(guest)
         
 

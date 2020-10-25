@@ -11,6 +11,7 @@ class TestRoom(unittest.TestCase):
         self.room = Room("Indie Rock & World Music")
         self.song_1 = Song("Intro by The XX")
         self.song_2 = Song("Wicked Games cover by Parra for Cuva")
+        self.guest = Guest("Ian", 20, "A Candle's Fire by Beirut")
         
         
     
@@ -34,7 +35,15 @@ class TestRoom(unittest.TestCase):
         self.room.remove_track_playlist(self.song_1)
         self.assertEqual(0, len(self.room.playlist))
 
+    def test_add_guest_to_room(self):
+        self.room.add_guest_to_room(self.guest)
+        self.assertEqual(1, len(self.room.guests))
     
+    def test_remove_guest_to_room(self):
+        self.room.add_guest_to_room(self.guest)
+        self.room.add_guest_to_room(self.guest)
+        self.room.remove_guest_to_room(self.guest)
+        self.assertEqual(1, len(self.room.guests))
         
 
     
