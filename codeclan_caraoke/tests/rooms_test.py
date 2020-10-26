@@ -43,16 +43,21 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_guest_to_room(self.guest)
         self.room_1.remove_guest_to_room(self.guest)
         self.assertEqual(1, len(self.room_1.guests))
+        
 
     # def test_add_guest_room_full(self):
-    #     self.room.add_guest_to_room(self.guest)
-
-    #     self.assertEqual(6, len(self.room.guests))
-    #     self.assertEqual("Room Full", self.room.add_guest_to_room)
-
-    # def test_max_room__has_capacity__True(self):
-    #     self.room.add_guest_to_room(self.guest)
-    #     self.assertEqual(1, len(self.room.guests))
+    #     self.room_1.add_guest_to_room(self.guest)
+    #     self.room_1.add_guest_to_room(self.guest)
+    #     self.room_1.add_guest_to_room(self.guest)
+    #     self.room_1.add_guest_to_room(self.guest)
+    #     self.room_1.add_guest_to_room(self.guest)
+    #     self.room_1.add_guest_to_room(self.guest)
+    #     self.room_1.add_guest_to_room(self.guest)
+    #     result = self.room_1.free_spaces()
+    #     result_2 = self.room_1.number_of_guests_in_room()
+    #     self.assertEqual(None, result)
+    #     self.assertEqual(6, result_2)
+        
     
     def test_room_has_free_space(self):
         self.room_1.add_guest_to_room(self.guest)
