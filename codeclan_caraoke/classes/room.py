@@ -17,17 +17,11 @@ class Room:
        self.playlist.remove([song])
 
 
-    # def add_guest_to_room(self, guest):
-    #     if self.free_spaces() != 0:
-    #         self.guests.append(guest)
-
     def add_guest_to_room(self, guest):
         if len(self.guests) < self.capacity:
             self.guests.append(guest)
         else:
             return "Room Full"
-        
-      
       
     def number_of_guests_in_room(self):
         return len(self.guests)

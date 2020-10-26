@@ -14,15 +14,3 @@ class TestGuest(unittest.TestCase):
     
     def test_guest_has_fav_song(self):
         self.assertEqual("A Candle's Fire by Beirut", self.guest.fav_song)
-
-    def test_guest_list(self):
-        self.assertEqual(0, len(self.guest.guest_list))
-
-    def test_add_to_guest_list(self):
-        self.guest.add_to_guestlist(Guest)
-        self.assertEqual(1, len(self.guest.guest_list))
-
-    def test_remove_guest_from_list(self):
-        self.guest.add_to_guestlist(Guest)
-        self.guest.remove_guest_from_list(Guest)
-        self.assertEqual(0, len(self.guest.guest_list))
