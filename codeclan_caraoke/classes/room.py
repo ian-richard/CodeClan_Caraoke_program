@@ -1,13 +1,13 @@
 import pdb
 class Room:
     
-    def __init__(self, room_name):
+    def __init__(self, room_name, entry_fee):
        self.room_name = room_name
        self.guests = []
        self.playlist = []
        self.capacity = 6
        self._till = 0
-       self._entry_fee = 6
+       self._entry_fee = entry_fee
     
     def playlist(self):
         return self.playlist
@@ -19,15 +19,10 @@ class Room:
        self.playlist.remove([song])
 
 
-    # def add_guest_to_room(self, guest):
-    #     if len(self.guests) < self.capacity:
-    #         self.guests.append(guest)
-    #     else:
-    #         return "Room Full"
-
     def add_guest_to_room(self, guest):
         if len(self.guests) < self.capacity and guest.can_afford_entry(self._entry_fee):
             guest.deduct_fee(self._entry_fee)
+            self._till += self._entry_fee
             self.guests.append(guest)
         else:
             return "Room Full"

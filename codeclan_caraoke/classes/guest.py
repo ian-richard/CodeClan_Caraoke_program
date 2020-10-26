@@ -11,3 +11,8 @@ class Guest:
     def deduct_fee(self, amount):
         self.wallet -= amount
 
+    def cheer(self, songs, guest):
+        for song in songs:
+            if song.song == guest.fav_song:
+                return True
+

@@ -6,9 +6,10 @@ from classes.songs import *
 class TestRoom(unittest.TestCase):
 
     def setUp(self):
-        self.room_1 = Room("Indie Rock & World Music")
+        self.room_1 = Room("Indie Rock & World Music", 6)
         self.song_1 = Song("Intro by The XX")
         self.song_2 = Song("Wicked Games cover by Parra for Cuva")
+        self.song_3 = Song("A Candle's Fire by Beirut")
         self.guest = Guest("Ian", 20, "A Candle's Fire by Beirut")
         self.guest_2 = Guest("Ann", 20, "Song2")
         self.guest_3 = Guest("Carly", 20, "Song3")
@@ -17,9 +18,17 @@ class TestRoom(unittest.TestCase):
         self.guest_6 = Guest("Hannah", 20, "Song6")
         self.guest_7 = Guest("Andy", 20, "Song7")
         self.guest_skint = Guest("Flint", 0, "Song_8")
+
+        self.songs = [self.song_1, self.song_2, self.song_3]
     
     def test_room_has_name(self):
         self.assertEqual("Indie Rock & World Music", self.room_1.room_name)
+    
+    def test_room_has_entry_fee(self):
+        self.assertEqual(6, self.room_1._entry_fee)
+    
+    def test_room_has_till(self):
+        self.assertEqual(0, self.room_1._till)
 
     def test_room_playlist__empty(self):
         self.assertEqual(0, len(self.room_1.playlist))
@@ -44,6 +53,7 @@ class TestRoom(unittest.TestCase):
     def test_add_guest_to_room__success(self):
         self.room_1.add_guest_to_room(self.guest)
         self.assertEqual(1, len(self.room_1.guests))
+        self.assertEqual(6, self.room_1._till)
     
     def test_add_guest_to_room__failure__no_money(self):
         self.room_1.add_guest_to_room(self.guest_skint)
@@ -77,6 +87,10 @@ class TestRoom(unittest.TestCase):
 
     def test_room_till_empty(self):
         self.assertEqual(0, self.room_1._till)
+
+    def test_cheers_for_fav_song(self):
+        songs = self.songs
+        self.assertEqual(True, self.guest.cheer(songs, self.guest))
 
 
         
