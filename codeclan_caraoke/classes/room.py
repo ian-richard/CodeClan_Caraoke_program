@@ -31,12 +31,14 @@ class Room:
 
     def remove_guest_to_room(self, guest):
         self.guests.remove(guest)
+
+    def get_capacity(self):
+        return self.capacity
     
-    def capacity(self):
-        len(self.guests) < self.capacity
+    def free_spaces(self):
+        self.capacity - len(self.guests) 
         
-        # if len(self.room.guests) is <6:
-        #     return True
+    
 
         
 
