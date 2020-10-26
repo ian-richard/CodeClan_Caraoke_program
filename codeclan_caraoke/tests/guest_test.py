@@ -14,3 +14,13 @@ class TestGuest(unittest.TestCase):
     
     def test_guest_has_fav_song(self):
         self.assertEqual("A Candle's Fire by Beirut", self.guest.fav_song)
+
+    def test_guest_can_afford_entry(self):
+        result = self.guest.can_afford_entry(5)
+        self.assertEqual(True, result)
+
+    def test_deduct_fee_from_wallet(self):
+        result = self.guest.deduct_fee(5)
+        self.assertEqual(15, self.guest.wallet)
+        
+        

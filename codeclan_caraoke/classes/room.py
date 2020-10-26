@@ -6,6 +6,8 @@ class Room:
        self.guests = []
        self.playlist = []
        self.capacity = 6
+       self._till = 0
+       self._entry_fee = 6
     
     def playlist(self):
         return self.playlist
@@ -17,8 +19,15 @@ class Room:
        self.playlist.remove([song])
 
 
+    # def add_guest_to_room(self, guest):
+    #     if len(self.guests) < self.capacity:
+    #         self.guests.append(guest)
+    #     else:
+    #         return "Room Full"
+
     def add_guest_to_room(self, guest):
-        if len(self.guests) < self.capacity:
+        if len(self.guests) < self.capacity and guest.can_afford_entry(self._entry_fee):
+            guest.deduct_fee(self._entry_fee)
             self.guests.append(guest)
         else:
             return "Room Full"
@@ -35,8 +44,9 @@ class Room:
     
     def free_spaces(self):
         self.capacity - len(self.guests) 
-        
+
     
 
+        
         
 
